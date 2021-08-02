@@ -3,7 +3,7 @@
   <parent>
     <groupId>guru.springframework</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
   </parent>
   <artifactId>sfg-pet-clinic-data</artifactId>
   <properties>
@@ -38,7 +38,7 @@
 		</dependencies>
 		
 		<build>
-		<pluginManagement></pluginManagement>
+		<pluginManagement />
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
