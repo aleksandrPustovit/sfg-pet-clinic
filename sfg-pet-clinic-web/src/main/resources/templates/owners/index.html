@@ -7,11 +7,22 @@
 <body>
     <h2 th:text="'owners'">Welcomsssse</h2>
 
-    <div class="row">
-        <div class="col-md-12">
-        sdfsdfsdfsf
-        </div>
-    </div>
+   <table class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 150px;">First Name</th>
+        <th style="width: 150px;">Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner.id}">1</td>
+        <td th:text="${owner.firstName}">Joe</td>
+        <td th:text="${owner.lastName}">Buck</td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
