@@ -36,7 +36,7 @@ public class SpecialitySPJpaService implements SpecialityService {
 
     @Override
     public Speciality save(Speciality object) {
-        return specialtyRepository.save();
+        return specialtyRepository.save(object);
     }
 
     @Override
