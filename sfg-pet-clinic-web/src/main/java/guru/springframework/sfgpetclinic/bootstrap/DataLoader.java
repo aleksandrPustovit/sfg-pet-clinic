@@ -1,13 +1,9 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.*;
-import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialityService;
+import guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import guru.springframework.sfgpetclinic.services.VetService;
 
 import java.time.LocalDate;
 
@@ -19,13 +15,16 @@ public class DataLoader implements CommandLineRunner {
 	private final PetTypeService petTypeService;
 
 	private final SpecialityService specialityService;
+
+	private final VisitService visitService;
 	
 	
-	DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService){
+	DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService){
 		this.ownerService = ownerService;
 		this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
 	
@@ -83,16 +82,24 @@ public class DataLoader implements CommandLineRunner {
         owner2.setCity("Espoo");
         owner2.setTelephone("66666");
 
+
+
         Pet fionaCat = new Pet();
         fionaCat.setOwner(owner2);
         fionaCat.setPetType(saveCatPetType);
         fionaCat.setName("Myska");
         fionaCat.setBirthDate(LocalDate.now());
 
-        owner1.getPets().add(fionaCat);
+        owner2.getPets().add(fionaCat);
 
 
         ownerService.save(owner2);
+
+        Visit visit = new Visit();
+        visit.setPet(fionaCat);
+        visit.setDate(LocalDate.now());
+        visit.setDescription("Visit description");
+        visitService.save(visit);
 
         System.out.println("Loaded Owners....");
 
