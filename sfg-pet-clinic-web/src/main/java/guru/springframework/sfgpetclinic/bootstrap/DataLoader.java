@@ -81,6 +81,7 @@ public class DataLoader implements CommandLineRunner {
                 .lastName("Glenanne")
                 .address("Ullantorpantie 126")
                 .city("Espoo")
+                .pets(new HashSet<>())
                 .telephone("66666")
                         .build();
 //        Owner owner2 = new Owner();
@@ -95,6 +96,7 @@ public class DataLoader implements CommandLineRunner {
         Pet fionaCat = new Pet();
         fionaCat.setOwner(owner2);
         fionaCat.setPetType(saveCatPetType);
+        fionaCat.setName("Myska");
         fionaCat.setName("Myska");
         fionaCat.setBirthDate(LocalDate.now());
 
